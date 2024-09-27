@@ -45,6 +45,11 @@ int _printf(const char *format, ...)
 					}
 				}
 			}
+			else if (*format == 'b')
+			{
+				unsigned int number = va_arg(args_list, unsigned int);
+				count += print_binary(number);
+			}
 			else if (*format == '%')
 			{
 				count += write(1, "%", 1);
@@ -63,6 +68,17 @@ int _printf(const char *format, ...)
 	}
 	va_end(args_list);
 	return count;
+}
+
+int print_binary(unsigned int n)
+{
+	char digit;
+	
+	if (n > 1)
+		print_binary(n >> 1);
+	
+	digit = (n & 1) + '0';
+	return write(1, &digit, 1);
 }
 
 void print_num(int n)
