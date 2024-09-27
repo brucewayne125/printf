@@ -4,6 +4,7 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <string.h>
+#include <stdio.h>
 
 int print_binary(unsigned int n);
 void print_num(int n);
