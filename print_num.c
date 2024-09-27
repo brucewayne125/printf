@@ -1,3 +1,5 @@
+#include "main.h"
+
 void print_num(int n)
 {
         char digit;
